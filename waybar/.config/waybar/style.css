@@ -75,7 +75,6 @@ button:hover {
     background-color: #64727D;
     border-bottom: 3px solid #ffffff;
 }
-
 #clock,
 #battery,
 #cpu,
@@ -282,4 +281,14 @@ label:focus {
 
 #scratchpad.empty {
 	background-color: transparent;
+}
+
+#custom-power {
+  padding: 0 10px;
+  color: #000000;
+  background-color: #bbccdd;
+}
+
+#custom-power:hover {
+  color: #ff5555;
 }
