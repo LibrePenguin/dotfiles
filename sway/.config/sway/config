@@ -15,11 +15,7 @@
 # AUTOSTART PROGRAMS
 exec nm-applet
 exec emacs --daemon
-exec foot --server
 exec blueman-applet
-exec flatpak run com.protonvpn.www
-exec flatpak run com.synology.SynologyDrive start
-exec flatpak run org.signal.Signal --enable-features=UseOzonePlatform --ozone-platform=wayland
 
 
 
@@ -261,7 +257,7 @@ bindsym $mod+shift+b exec firefox
 bindsym ctrl+$mod+f exec thunar
 
 # Open a terminal emulator:
-set $term footclient
+set $term ghostty
 bindsym $mod+return exec $term
 
 # Kill focused window:
