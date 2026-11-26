@@ -16,8 +16,9 @@
 exec nm-applet
 exec emacs --daemon
 exec blueman-applet
-
-
+exec tailscale systray
+exec thunderbird
+exec --no-startup-id flatpak run org.signal.Signal
 
 #========================#
 # Appearance and Theming #
@@ -45,7 +46,7 @@ gaps outer 5
 default_border pixel 6
 
 # Set the Wallpaper:
-output * bg $HOME/.config/sway/wallpapers/01.png fill
+output * bg $HOME/.config/sway/wallpapers/07.jpg fill
 
 # Set keyboard layout
 input "type:keyboard" {
@@ -75,7 +76,7 @@ set $alt Mod1
 bindsym $mod+Shift+c reload
 
 # Shutdown computer
-bindsym $mod+Shift+p exec wlogout
+bindsym $mod+Shift+p exec ~/.config/waybar/custom/power.sh
 
 # Logout
 #bindsym $mod+Shift+e exit
@@ -227,6 +228,13 @@ bindsym $mod+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
 
+# Start thunderbird in scratchpad
+for_window [app_id="thunderbird"] move scratchpad
+
+# Start signal in scratchpad
+for_window [app_id="org.signal.Signal"] move to scratchpad
+
+
 
 #===============================#
 # Keyboard Shortcuts (Hardware) #
@@ -247,11 +255,16 @@ bindsym XF86MonBrightnessUp exec light -A 10
 # Set up wofi to replace dmenu as the launcher of choice:
 #set $menu wofi --show drun  -i | xargs swaymsg exec --
 
+# Swaylock
+#bindsym $mod+shift+l exec swaylock -i ~/.config/sway/wallpapers/07.jpg
+bindsym $mod+Shift+q exec swaylock -f -i $HOME/.config/sway/wallpapers/07.jpg
+
+
 # EMACS
 bindsym $mod+shift+e exec emacsclient -c
 
 # Launch your browser:
-bindsym $mod+shift+b exec firefox
+bindsym $mod+shift+b exec firefox-esr
 
 # Open a file manager:
 bindsym ctrl+$mod+f exec thunar

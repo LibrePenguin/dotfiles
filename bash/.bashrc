@@ -15,7 +15,6 @@
 
 ### EXPORT
 export EDITOR=nvim
-export TERM="xterm-256color"                      # getting proper colors
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
@@ -90,9 +89,11 @@ alias grep="grep --color=auto"
 alias yt="youtube-dl --add-metadata -ic"
 # Download only audio
 alias yta="youtube-dl --add-metadata -xic"
-# use Neovim
-alias vim="nvim"
-alias vi="nvim"
+
+# Emacs
+alias emacs="emacsclient -c -a 'emacs'"
+alias em="emacs -nw"
+
 # cat as bat
 alias cat="bat"
 

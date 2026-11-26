@@ -11,18 +11,16 @@
 # - Give it exec priviledge, or chmod +x /path/to/power.sh
 # - Run it
 
-chosen=$(echo -e "[Cancel]\nLogout\nShutdown\nReboot\nSuspend\nHibernate\nHybrid-sleep" | rofi -dmenu -i)
+chosen=$(echo -e "[Cancel]\nLogout\nShutdown\nReboot\nSuspend\nLock" | rofi -dmenu -hover-select -me-select-entry '' -me-accept-entry MousePrimary -i)
 
 if [[ $chosen = "Logout" ]]; then
-	sway -exit
+	swaymsg exit
 elif [[ $chosen = "Shutdown" ]]; then
 	systemctl poweroff
 elif [[ $chosen = "Reboot" ]]; then
 	systemctl reboot
 elif [[ $chosen = "Suspend" ]]; then
 	systemctl suspend
-elif [[ $chosen = "Hibernate" ]]; then
-	systemctl hibernate
-elif [[ $chosen = "Hybrid-sleep" ]]; then
-	systemctl hibernate
+elif [[ $chosen = "Lock" ]]; then
+	swaylock -f -i $HOME/.config/sway/wallpapers/07.jpg
 fi
