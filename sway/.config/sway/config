@@ -15,6 +15,7 @@
 # AUTOSTART PROGRAMS
 exec nm-applet
 exec emacs --daemon
+exec foot --server
 exec blueman-applet
 exec tailscale systray
 exec thunderbird
@@ -231,10 +232,6 @@ bindsym $mod+minus scratchpad show
 # Start thunderbird in scratchpad
 for_window [app_id="thunderbird"] move scratchpad
 
-# Start signal in scratchpad
-for_window [app_id="org.signal.Signal"] move to scratchpad
-
-
 
 #===============================#
 # Keyboard Shortcuts (Hardware) #
@@ -270,7 +267,7 @@ bindsym $mod+shift+b exec firefox-esr
 bindsym ctrl+$mod+f exec thunar
 
 # Open a terminal emulator:
-set $term ghostty
+set $term footclient
 bindsym $mod+return exec $term
 
 # Kill focused window:
