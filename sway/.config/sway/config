@@ -14,7 +14,7 @@
 #==================================================================================#
 # AUTOSTART PROGRAMS
 exec nm-applet
-exec emacs --daemon
+exec /usr/bin/emacs --daemon
 exec foot --server
 exec blueman-applet
 exec tailscale systray
